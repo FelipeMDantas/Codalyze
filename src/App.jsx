@@ -13,6 +13,59 @@ const App = () => {
 
   const [selectedOption, setSelectedOption] = useState(options[0]);
 
+  const darkThemeStyles = {
+    control: (base, state) => ({
+      ...base,
+      backgroundColor: "#2c2c2c",
+      borderColor: state.isFocused ? "#555" : "#444",
+      boxShadow: state.isFocused ? "0 0 0 1px #888" : "none",
+      "&:hover": {
+        borderColor: "#666",
+      },
+      color: "#fff",
+    }),
+    menu: (base) => ({
+      ...base,
+      backgroundColor: "#2c2c2c",
+      color: "#fff",
+    }),
+    option: (base, state) => ({
+      ...base,
+      backgroundColor: state.isFocused
+        ? "#3a3a3a"
+        : state.isSelected
+        ? "#555"
+        : "#2c2c2c",
+      color: "#fff",
+      "&:active": {
+        backgroundColor: "#444",
+      },
+    }),
+    singleValue: (base) => ({
+      ...base,
+      color: "#fff",
+    }),
+    input: (base) => ({
+      ...base,
+      color: "#fff",
+    }),
+    placeholder: (base) => ({
+      ...base,
+      color: "#aaa",
+    }),
+    dropdownIndicator: (base) => ({
+      ...base,
+      color: "#aaa",
+      "&:hover": {
+        color: "#fff",
+      },
+    }),
+    indicatorSeparator: (base) => ({
+      ...base,
+      backgroundColor: "#555",
+    }),
+  };
+
   return (
     <>
       <Navbar />
@@ -22,9 +75,10 @@ const App = () => {
       >
         <div className="left h-[80%] w-[50%]">
           <Select
-            value={options[0]}
+            value={selectedOption}
             options={options}
-            onChange={(e) => setSelectedOption(e.value)}
+            onChange={(e) => setSelectedOption(e)}
+            styles={darkThemeStyles}
           />
           <Editor
             height="100%"
