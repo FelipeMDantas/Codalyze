@@ -1,13 +1,19 @@
-import { BrainCircuit } from "lucide-react";
+import { BrainCircuit, Sun } from "lucide-react";
 
 const Navbar = () => {
   return (
     <div
-      className="flex items-center justify-between h-[90px] bg-zinc-900"
+      className="nav flex items-center justify-between h-[90px] bg-zinc-900"
       style={{ padding: "0px 150px" }}
     >
-      <div className="logo">
-        <BrainCircuit size={30} color="#7e22ce" />
+      <div className="logo flex items-center gap-[10px]">
+        <BrainCircuit size={30} color="#9333ea" />
+        <span className="text-2xl font-bold text-white">Codeify</span>
+      </div>
+      <div className="icons flex items-center">
+        <div className="cursor-pointer transition-all hover:text-[#9333ea]">
+          <Sun />
+        </div>
       </div>
     </div>
   );
