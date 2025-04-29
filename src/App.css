@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
 }
@@ -8,5 +8,14 @@ body {
   padding: 0;
   box-sizing: border-box;
   background-color: #000;
-  color: #fff
+  color: #fff;
+}
+
+.btnNormal {
+  padding: 10px;
+  color: #fff;
+  border-radius: 10px;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
 }

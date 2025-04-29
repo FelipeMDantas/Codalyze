@@ -6,9 +6,16 @@ import Select from "react-select";
 
 const App = () => {
   const options = [
-    { value: "chocolate", label: "Chocolate" },
-    { value: "strawberry", label: "Strawberry" },
-    { value: "vanilla", label: "Vanilla" },
+    { value: "javascript", label: "JavaScript" },
+    { value: "python", label: "Python" },
+    { value: "java", label: "Java" },
+    { value: "csharp", label: "C#" },
+    { value: "cpp", label: "C++" },
+    { value: "ruby", label: "Ruby" },
+    { value: "go", label: "Go" },
+    { value: "php", label: "PHP" },
+    { value: "typescript", label: "TypeScript" },
+    { value: "rust", label: "Rust" },
   ];
 
   const [selectedOption, setSelectedOption] = useState(options[0]);
@@ -70,16 +77,22 @@ const App = () => {
     <>
       <Navbar />
       <div
-        className="main flex items-center justify-between"
+        className="main flex items-center"
         style={{ height: "calc(100vh - 90px)" }}
       >
         <div className="left h-[80%] w-[50%]">
-          <Select
-            value={selectedOption}
-            options={options}
-            onChange={(e) => setSelectedOption(e)}
-            styles={darkThemeStyles}
-          />
+          <div className="tabs w-full flex items-center gap-[10px] justify-between">
+            <Select
+              value={selectedOption}
+              options={options}
+              onChange={(e) => setSelectedOption(e)}
+              styles={darkThemeStyles}
+              className="w-[40%]"
+            />
+            <button className="btnNormal bg-zinc-900 min-w-[120px] transition-all hover:bg-zinc-800">
+              Review
+            </button>
+          </div>
           <Editor
             height="100%"
             theme="vs-dark"
