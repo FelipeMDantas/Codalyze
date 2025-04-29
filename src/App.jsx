@@ -81,7 +81,7 @@ const App = () => {
         style={{ height: "calc(100vh - 90px)" }}
       >
         <div className="left h-[80%] w-[50%]">
-          <div className="tabs w-full flex items-center gap-[10px] justify-between">
+          <div className="tabs px-5 mb-3 w-full flex items-center justify-between">
             <Select
               value={selectedOption}
               options={options}
@@ -89,9 +89,14 @@ const App = () => {
               styles={darkThemeStyles}
               className="w-[40%]"
             />
-            <button className="btnNormal bg-zinc-900 min-w-[120px] transition-all hover:bg-zinc-800">
-              Review
-            </button>
+            <div className="flex gap-[10px]">
+              <button className="btnNormal bg-zinc-900 min-w-[120px] transition-all hover:bg-zinc-800">
+                Fix Code
+              </button>
+              <button className="btnNormal bg-zinc-900 min-w-[120px] transition-all hover:bg-zinc-800">
+                Review
+              </button>
+            </div>
           </div>
           <Editor
             height="100%"
@@ -100,6 +105,12 @@ const App = () => {
             defaultValue="// some comment"
           />
           ;
+        </div>
+
+        <div className="right p-[10px] bg-zinc-900 w-[50%] h-[85%]">
+          <div className="topTab border-y-[1px] border-[#27272a] flex items-center justify-between h-[60px]">
+            <p className="font-[700] text-[17px]">Response</p>
+          </div>
         </div>
       </div>
     </>
