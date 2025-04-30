@@ -19,8 +19,6 @@ const App = () => {
     { value: "rust", label: "Rust" },
   ];
 
-  const [selectedOption, setSelectedOption] = useState(options[0]);
-
   const darkThemeStyles = {
     control: (base, state) => ({
       ...base,
@@ -74,7 +72,36 @@ const App = () => {
     }),
   };
 
+  const [selectedOption, setSelectedOption] = useState(options[0]);
+  const [code, setCode] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [response, setResponse] = useState("");
+
   const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API });
+
+  async function reviewCode() {
+    setLoading(true);
+    const response = await ai.models.generateContent({
+      model: "gemini-2.0-flash",
+      contents: `You are an expert-level software developer, skilled in writing efficient, clean, and advanced code.
+I’m sharing a piece of code written in ${selectedOption.value}.
+Your job is to deeply review this code and provide the following:
+
+1️⃣ A quality rating: Better, Good, Normal, or Bad.
+2️⃣ Detailed suggestions for improvement, including best practices and advanced alternatives.
+3️⃣ A clear explanation of what the code does, step by step.
+4️⃣ A list of any potential bugs or logical errors, if found.
+5️⃣ Identification of syntax errors or runtime errors, if present.
+6️⃣ Solutions and recommendations on how to fix each identified issue.
+
+Analyze it like a senior developer reviewing a pull request.
+
+Code: ${code}
+`,
+    });
+    setResponse(response.text);
+    setLoading(false);
+  }
 
   return (
     <>
@@ -105,14 +132,15 @@ const App = () => {
             height="100%"
             theme="vs-dark"
             language={selectedOption.value}
-            defaultValue="// some comment"
+            value={code}
+            onChange={(e) => setCode(e)}
           />
           ;
         </div>
 
         <div className="right p-[10px] bg-zinc-900 w-[50%] h-[90%] mt-6">
           <div className="topTab border-y-[1px] border-[#27272a] flex mt-3 items-center justify-between h-[60px]">
-            <p className="font-[700] text-[17px]">Response</p>
+            <p className="font-[700] text-[17px]">Response {code.toString()}</p>
           </div>
         </div>
       </div>
