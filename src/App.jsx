@@ -3,6 +3,7 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Editor from "@monaco-editor/react";
 import Select from "react-select";
+import { GoogleGenAI } from "@google/genai";
 
 const App = () => {
   const options = [
@@ -73,6 +74,8 @@ const App = () => {
     }),
   };
 
+  const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API });
+
   return (
     <>
       <Navbar />
@@ -89,7 +92,7 @@ const App = () => {
               styles={darkThemeStyles}
               className="w-[40%]"
             />
-            <div className="flex gap-[10px]">
+            <div className="flex gap-[40px]">
               <button className="btnNormal bg-zinc-900 min-w-[120px] transition-all hover:bg-zinc-800">
                 Fix Code
               </button>
@@ -101,14 +104,14 @@ const App = () => {
           <Editor
             height="100%"
             theme="vs-dark"
-            language="javascript"
+            language={selectedOption.value}
             defaultValue="// some comment"
           />
           ;
         </div>
 
-        <div className="right p-[10px] bg-zinc-900 w-[50%] h-[85%]">
-          <div className="topTab border-y-[1px] border-[#27272a] flex items-center justify-between h-[60px]">
+        <div className="right p-[10px] bg-zinc-900 w-[50%] h-[90%] mt-6">
+          <div className="topTab border-y-[1px] border-[#27272a] flex mt-3 items-center justify-between h-[60px]">
             <p className="font-[700] text-[17px]">Response</p>
           </div>
         </div>
