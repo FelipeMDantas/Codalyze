@@ -4,6 +4,8 @@ import Navbar from "./components/Navbar";
 import Editor from "@monaco-editor/react";
 import Select from "react-select";
 import { GoogleGenAI } from "@google/genai";
+import Markdown from "react-markdown";
+import { RingLoader } from "react-spinners";
 
 const App = () => {
   const options = [
@@ -123,7 +125,16 @@ Code: ${code}
               <button className="btnNormal bg-zinc-900 min-w-[120px] transition-all hover:bg-zinc-800">
                 Fix Code
               </button>
-              <button className="btnNormal bg-zinc-900 min-w-[120px] transition-all hover:bg-zinc-800">
+              <button
+                onClick={() => {
+                  if (code === "") {
+                    alert("Please enter some code");
+                  } else {
+                    reviewCode();
+                  }
+                }}
+                className="btnNormal bg-zinc-900 min-w-[120px] transition-all hover:bg-zinc-800"
+              >
                 Review
               </button>
             </div>
@@ -135,13 +146,15 @@ Code: ${code}
             value={code}
             onChange={(e) => setCode(e)}
           />
-          ;
         </div>
 
-        <div className="right p-[10px] bg-zinc-900 w-[50%] h-[90%] mt-6">
-          <div className="topTab border-y-[1px] border-[#27272a] flex mt-3 items-center justify-between h-[60px]">
-            <p className="font-[700] text-[17px]">Response {code.toString()}</p>
+        <div className="right overflow-y-scroll p-[10px] bg-zinc-900 w-[50%] h-[100%]">
+          <div className="topTab border-y-[1px] border-[#27272a] flex mb-20 items-center justify-between h-[60px]">
+            <p className="font-[700] text-[17px]">Response</p>
           </div>
+          {loading && <RingLoader color="#9333ea" />}
+
+          <Markdown>{response}</Markdown>
         </div>
       </div>
     </>
