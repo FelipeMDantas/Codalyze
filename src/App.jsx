@@ -82,6 +82,7 @@ const App = () => {
   const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API });
 
   async function reviewCode() {
+    setResponse("");
     setLoading(true);
     const response = await ai.models.generateContent({
       model: "gemini-2.0-flash",
@@ -148,8 +149,8 @@ Code: ${code}
           />
         </div>
 
-        <div className="right overflow-y-scroll p-[10px] bg-zinc-900 w-[50%] h-[100%]">
-          <div className="topTab border-y-[1px] border-[#27272a] flex mb-20 items-center justify-between h-[60px]">
+        <div className="right overflow-y-auto p-[10px] bg-zinc-900 w-[50%] h-[100%] mb-16">
+          <div className="topTab border-y-[1px] border-[#27272a] flex mt-6 mb-20 items-center justify-between h-[60px]">
             <p className="font-[700] text-[17px]">Response</p>
           </div>
           {loading && <RingLoader color="#9333ea" />}
