@@ -8,12 +8,9 @@ const Navbar = () => {
     >
       <div className="logo flex items-center gap-[10px]">
         <BrainCircuit size={30} color="#9333ea" />
-        <span className="text-2xl font-bold text-white">Codeify</span>
+        <span className="text-2xl font-bold text-white">Codalyze</span>
       </div>
       <div className="icons flex items-center">
-        <div className="cursor-pointer transition-all hover:text-[#9333ea]">
-          <Sun />
-        </div>
       </div>
     </div>
   );

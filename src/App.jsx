@@ -123,9 +123,6 @@ Code: ${code}
               className="w-[40%]"
             />
             <div className="flex gap-[40px]">
-              <button className="btnNormal bg-zinc-900 min-w-[120px] transition-all hover:bg-zinc-800">
-                Fix Code
-              </button>
               <button
                 onClick={() => {
                   if (code === "") {
