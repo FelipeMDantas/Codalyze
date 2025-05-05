@@ -1,12 +1,41 @@
-# React + Vite
+# Codalyze
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Choose a programming language and analyze the quality of your code
 
-Currently, two official plugins are available:
+![Felipe|Codalyze](https://img.shields.io/badge/FelipeMDantas-Codalyze-purple)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<p>
 
-## Expanding the ESLint configuration
+![ReactJS](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Google Gemini](https://img.shields.io/badge/google%20gemini-8E75B2?style=for-the-badge&logo=google%20gemini&logoColor=white)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+> This single page application applies a structured prompt to the content of your code and returns a specified and detailed analysis of its quality and how it can be improved
+
+### Take a look at the page
+
+<img src = gif/page_gif.gif>
+
+### or... give it a try!
+
+https://codalyze.vercel.app/
+
+## Tech
+
+A couple of technologies were employed in this project. Among them:
+
+- [ReactJS] - a JavaScript library for building user interfaces
+- [Gemini] - Google AI
+- [Tailwind] - a utility-first CSS framework
+- [Monaco Editor] - provides a code editor for React applications
+- [Markdown] - a React component that safely renders markdown contents in React elements
+- [React Select] - a flexible Select Input control for ReactJS
+- [React Spinners] - a collection of loading spinners with ReactJS
+
+  [reactjs]: https://reactjs.org/
+  [gemini]: https://gemini.google.com/
+  [tailwind]: https://tailwindcss.com/
+  [monaco editor]: https://github.com/suren-atoyan/monaco-react
+  [markdown]: https://github.com/remarkjs/react-markdown
+  [react select]: https://react-select.com/home
+  [react spinners]: https://www.npmjs.com/package/react-spinners
